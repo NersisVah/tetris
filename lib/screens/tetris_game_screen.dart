@@ -85,13 +85,7 @@ class _GameBoardState extends State<GameBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF000000),
-      appBar: AppBar(
-        title: Center(
-            child: Text(
-          'TETRIS GAME',
-        )),
-      ),
+      backgroundColor: Color(0xFF0A272B),
       body: GestureDetector(
         onTap: (){
           currentPiece.moviePiece(Direction.left);
@@ -106,22 +100,24 @@ class _GameBoardState extends State<GameBoard> {
             int col = index % rowLength;
             if (currentPiece.position.contains(index)) {
               return Pixel(
+                image: AssetImage('yellow.png'),
                 color: Colors.yellow,
-                child: index.toString(),
+
               );
             }
 
             else if (gameBoard1[row][col] != 0) {
-              return Pixel(
+              return Pixel(image: AssetImage('yellow.png'),
                 color: Colors.greenAccent,
-                child: '',
+
               );
             }
 
             else
               return Pixel(
+                image: AssetImage('images/wallpaper.jpg'),
                 color: Colors.grey[900],
-                child: index.toString(),
+
               );
           },
         ),

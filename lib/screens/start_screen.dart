@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_tetris_game/Screens/newScreen/my_tetris_game_screen.dart';
+import 'package:my_tetris_game/screens/newScreen/my_tetris_game_screen.dart';
 import 'package:my_tetris_game/constant.dart';
-import 'package:my_tetris_game/Screens/tetris_game_screen.dart';
+import 'package:my_tetris_game/screens/tetris_game_screen.dart';
 import 'package:my_tetris_game/tetris_logo.dart';
 
 class StartScreen extends StatelessWidget {
@@ -57,18 +57,45 @@ class StartScreen extends StatelessWidget {
             SizedBox(
               height: 100,
             ),
-            ImageButton('Level'),
-            SizedBox(
-              height: 20,
+            ImageButton(
+              image: AssetImage('images/tet.jpeg'),
+              onPress: () {},
+              child: Text(
+                'level'.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: kTextStyle,
+              ),
             ),
             SizedBox(
               height: 20,
             ),
-            ImageButton('start game'),
             SizedBox(
               height: 20,
             ),
-            ImageButton('score'),
+            ImageButton(
+              image: AssetImage('images/tet.jpeg'),
+              onPress: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => GameScreen()));
+              },
+              child: Text(
+                'start game'.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: kTextStyle,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ImageButton(
+              image: AssetImage('images/tet.jpeg'),
+              onPress: () {},
+              child: Text(
+                'score'.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: kTextStyle,
+              ),
+            ),
           ],
         ),
       ),
@@ -77,9 +104,11 @@ class StartScreen extends StatelessWidget {
 }
 
 class ImageButton extends StatelessWidget {
-  final String string;
+  final Widget? child;
+  final ImageProvider<Object> image;
+  final Function()? onPress;
 
-  ImageButton(this.string);
+  ImageButton({required this.onPress, required this.image, this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -87,20 +116,12 @@ class ImageButton extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          image: DecorationImage(
-              image: AssetImage('images/tet.jpeg'), fit: BoxFit.cover)),
+          image: DecorationImage(image: image, fit: BoxFit.cover)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => GameScreen()));
-          },
-          child: Text(
-            string.toUpperCase(),
-            textAlign: TextAlign.center,
-            style: kTextStyle,
-          ),
+          onTap: onPress,
+          child: child,
         ),
       ),
     );

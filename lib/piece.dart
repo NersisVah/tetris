@@ -11,37 +11,37 @@ class Piece {
     switch (type) {
       case Tetromino.L:
         {
-          position = [4-20, 14-20, 24-20, 25-20];
+          position = [4, 14, 24, 25];
         }
         break;
       case Tetromino.J:
         {
-          position = [4-20, 14-20, 24-20, 23-20];
+          position = [4, 14, 24, 23];
         }
         break;
       case Tetromino.I:
         {
-          position = [4-20, 14-20, 24-20, 34-20];
+          position = [4, 14, 24, 34];
         }
         break;
       case Tetromino.O:
         {
-          position = [4-20, 5-20, 14-20, 15-20];
+          position = [4, 5, 14, 15];
         }
         break;
       case Tetromino.S:
         {
-          position = [4-20, 5-20, 14-20, 13-20];
+          position = [4, 5, 14, 13];
         }
         break;
       case Tetromino.Z:
         {
-          position = [4-20, 5-20, 15-20, 16-20];
+          position = [4, 5, 15, 16];
         }
         break;
       case Tetromino.T:
         {
-          position = [4-20, 14-20, 24-20, 15-20];
+          position = [4, 14, 24, 15];
         }
         break;
       default:
@@ -62,7 +62,7 @@ class Piece {
       }break;
       case Direction.down:{
         for(int i = 0; i < position.length ; i++){
-          position[i] += rowLength;
+          position[i] += 10;
         }
       }break;
       default:{}

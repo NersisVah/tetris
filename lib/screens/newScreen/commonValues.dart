@@ -1,1 +1,1 @@
-Duration duration = Duration(milliseconds: 500);
+Duration duration = Duration(milliseconds: 5100);

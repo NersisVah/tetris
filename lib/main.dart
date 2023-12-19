@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_tetris_game/start_screen.dart';
+import 'package:my_tetris_game/screens/start_screen.dart';
 
 void main() {
   runApp(MyApp());

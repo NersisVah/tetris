@@ -7,20 +7,20 @@ class TetrisLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.end,
+      // mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.baseline,
       textBaseline: TextBaseline.ideographic,
       children: [
         Text(
           'T',
-          style: kTextStyle.copyWith(color: kMyRedColor),
+          style: kTextStyle
         ),
         SizedBox(
-          width: 5,
+          width: 15,
         ),
         Container(
-          width: 120,
-          height: 120,
+          width: 200,
+          height: 175,
           // color: Colors.red,
           child: Column(
 
@@ -29,47 +29,37 @@ class TetrisLogo extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    width: 8,
+                    width: 16,
                   ),
-                  MyContainer(
-                    color: kMyRedColor,
-                  ),
-                  MyContainer(
-                    color: kMyGreenColor,
-                  ),
-                  MyContainer(
-                    color: kMyYellowColor,
-                  ),
+                  MyContainer(),
+                  MyContainer(),
+                  MyContainer(),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Text(
-                      'E',
-                      style: kTextStyle.copyWith(color: kMyGreenColor,),
-                    ),
+                  Text(
+                    'E',
+                    style: kTextStyle,
                   ),
+                  SizedBox(
+                    width: 15,
+                  ),
+
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      MyContainer(
-                        color: kMyRedColor,
-                      ),
-                      MyContainer(
-                        color: kMyYellowColor,
-                      ),
+                      MyContainer(),
+                      MyContainer(),
                     ],
                   ),
                   SizedBox(
-                    width: 5,
+                    width: 15,
                   ),
                   Text(
                     'R',
-                    style: kTextStyle.copyWith(
-                      color: kMyGreenColor,
-                    ),
+                    style: kTextStyle
                   )
                 ],
               ),
@@ -77,18 +67,18 @@ class TetrisLogo extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 5,
+          width: 15,
         ),
         Text(
           'I',
-          style: kTextStyle.copyWith(color: kMyRedColor),
+          style: kTextStyle
         ),
         SizedBox(
-          width: 5,
+          width: 15,
         ),
         Text(
           'S',
-          style: kTextStyle.copyWith(color: kMyYellowColor),
+          style: kTextStyle
         ),
       ],
     );
@@ -96,19 +86,22 @@ class TetrisLogo extends StatelessWidget {
 }
 
 class MyContainer extends StatelessWidget {
-  final Color? color;
+  // final DecorationImage image;
 
-  MyContainer({this.color});
+  // MyContainer({required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: color,
+        color: Color(0xffdedeff),
+
+        // image: image,
+        borderRadius: BorderRadius.circular(10),
+
       ),
-      width: 30,
-      height: 30,
+      width: 50,
+      height: 50,
       margin: EdgeInsets.all(2.5),
     );
   }

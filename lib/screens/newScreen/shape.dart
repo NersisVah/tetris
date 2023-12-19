@@ -3,8 +3,13 @@ import 'package:my_tetris_game/values.dart';
 import 'package:flutter/material.dart';
 
 abstract class Shape {
+  late ImageProvider image;
   Color? color;
   List<int> pixelList = [];
+  List<int> singlePixelList = [];
+
+
+  void rotateShape();
 
   void moveDown() {
     for (int i = 0; i < pixelList.length; i++) {
@@ -33,9 +38,4 @@ abstract class Shape {
   }
 }
 
-class ShapeL extends Shape {
-  ShapeL() {
-    pixelList = [4, 14, 24, 25];
-    color = Colors.red;
-  }
-}
+
