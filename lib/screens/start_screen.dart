@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_tetris_game/screens/newScreen/my_tetris_game_screen.dart';
-import 'package:my_tetris_game/constant.dart';
-import 'package:my_tetris_game/screens/tetris_game_screen.dart';
+import 'package:my_tetris_game/main/constant.dart';
 import 'package:my_tetris_game/tetris_logo.dart';
 
 class StartScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../shape.dart';
+import 'abstract_shape/shape.dart';
 
 class ShapeS extends Shape {
   List<int> singlePixelList = [11,12,7,8];

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_tetris_game/values.dart';
 
-import '../shape.dart';
+import 'abstract_shape/shape.dart';
 
 class ShapeI extends Shape {
   List<int> singlePixelList = [7,12,17,22];

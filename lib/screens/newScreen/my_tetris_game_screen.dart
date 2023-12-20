@@ -2,20 +2,18 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:my_tetris_game/constant.dart';
-import 'package:my_tetris_game/screens/newScreen/shape.dart';
-import 'package:my_tetris_game/piece.dart';
-import 'package:my_tetris_game/pixel.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_I.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_T.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_J.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_O.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_S.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_Z.dart';
-import 'package:my_tetris_game/screens/newScreen/shapes/shape_L.dart';
+import 'package:my_tetris_game/main/constant.dart';
+import 'package:my_tetris_game/shapes/abstract_shape/shape.dart';
+import 'package:my_tetris_game/pixel/pixel.dart';
+import 'package:my_tetris_game/shapes/shape_I.dart';
+import 'package:my_tetris_game/shapes/shape_T.dart';
+import 'package:my_tetris_game/shapes/shape_J.dart';
+import 'package:my_tetris_game/shapes/shape_O.dart';
+import 'package:my_tetris_game/shapes/shape_S.dart';
+import 'package:my_tetris_game/shapes/shape_Z.dart';
+import 'package:my_tetris_game/shapes/shape_L.dart';
 import 'package:my_tetris_game/screens/start_screen.dart';
 import 'package:my_tetris_game/values.dart';
-
 import 'commonValues.dart';
 
 int randomInt = 0;
@@ -39,7 +37,10 @@ class GameScreen extends StatefulWidget {
   State<GameScreen> createState() => _GameScreenState();
 }
 
+
+//Create class Game (nextShape,currentShape, gameScore)
 class _GameScreenState extends State<GameScreen> {
+  // Game game=new Game()
   Shape nextShape = ShapeT();
   Shape currentShape = ShapeT();
   int gameScore = 0;
@@ -258,7 +259,7 @@ class _GameScreenState extends State<GameScreen> {
   bool hasCollusionDown() {
     for (int i = currentShape.pixelList.length - 1; i >= 0; i--) {
       int row = (currentShape.pixelList[i] / rowLength).floor();
-      int col = currentShape.pixelList[i] % rowLength;
+      int col = (currentShape.pixelList[i] % rowLength).floor();
       int nextRow = row + 1;
 
       if (nextRow >= 15 || myGameBoard[nextRow][col].containsValue(1)) {
@@ -277,10 +278,29 @@ class _GameScreenState extends State<GameScreen> {
           print('row is $i count is $count');
         }
         if (count == 10) {
-          while (i != 0) {
-            myGameBoard[i] = myGameBoard[i - 1];
-            i--;
-          }
+          myGameBoard[i] = [
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+            {AssetImage('images/new/full.jpg'): 1},
+          ];
+          Timer timer = Timer(Duration(milliseconds: 400), () {
+              for(int k = i ; i > 0 ; i--){
+                myGameBoard[i] = myGameBoard[i - 1];
+              }
+
+          });
+          // while (i != 0) {
+          //   myGameBoard[i] = myGameBoard[i - 1];
+            // i--;
+          // }
           gameScore += 10;
         }
       }
@@ -289,6 +309,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void createNewShape(int randomInt) {
+    //TODO move to other class, ShapeBuilder
     switch (randomInt) {
       case 0:
         {
@@ -398,7 +419,7 @@ class _GameScreenState extends State<GameScreen> {
                                   if (nextShape.singlePixelList
                                       .contains(index)) {
                                     return Pixel(
-                                      color: nextShape.color,
+                                      color: nextShape.color, //game.getNextShape()
                                       image: nextShape.image,
                                     );
                                   } else {
