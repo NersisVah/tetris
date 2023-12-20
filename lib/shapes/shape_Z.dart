@@ -25,4 +25,10 @@ class ShapeZ extends Shape {
       _hasRotate = false;
     }
   }
+
+  @override
+  bool hasRotate(List<List<Map<ImageProvider?, int>>> myGameBoard) {
+    // TODO: implement hasRotate
+    return true;
+  }
 }

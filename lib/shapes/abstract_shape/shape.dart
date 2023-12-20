@@ -10,6 +10,7 @@ abstract class Shape {
 
 
   void rotateShape();
+  bool hasRotate(List<List<Map<ImageProvider?, int>>> myGameBoard);
 
   void moveDown() {
     for (int i = 0; i < pixelList.length; i++) {

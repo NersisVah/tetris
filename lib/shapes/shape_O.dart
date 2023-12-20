@@ -13,4 +13,10 @@ class ShapeO extends Shape {
   void rotateShape() {
     // TODO: implement rotateShape
   }
+
+  @override
+  bool hasRotate(List<List<Map<ImageProvider?, int>>> myGameBoard) {
+    // TODO: implement hasRotate
+    return true;
+  }
 }

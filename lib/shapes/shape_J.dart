@@ -7,7 +7,7 @@ class ShapeJ extends Shape {
   int rotateCount = 0;
   ShapeJ() {
     pixelList = [24, 25, 15, 5];
-    color = Colors.yellow;image = AssetImage('images/new/blue1.jpg');
+    color = Colors.yellow;image = AssetImage('images/new/blue2.jpg');
   }
 
   @override
@@ -33,5 +33,11 @@ class ShapeJ extends Shape {
           rotateCount  = 0;
         } break;
     }
+  }
+
+  @override
+  bool hasRotate(List<List<Map<ImageProvider?, int>>> myGameBoard) {
+    // TODO: implement hasRotate
+    return true;
   }
 }

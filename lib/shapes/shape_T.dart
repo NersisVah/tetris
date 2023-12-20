@@ -45,4 +45,10 @@ class ShapeT extends Shape {
         break;
     }
   }
+
+  @override
+  bool hasRotate(List<List<Map<ImageProvider?, int>>> myGameBoard) {
+    // TODO: implement hasRotate
+    return true;
+  }
 }
